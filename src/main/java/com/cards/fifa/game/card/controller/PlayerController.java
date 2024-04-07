@@ -24,4 +24,9 @@ public class PlayerController {
     public ResponseEntity<Player>createPlayer(@RequestBody PlayerRecordDto playerRecordDto){
         return ResponseEntity.status(HttpStatus.NO_CONTENT).body(playerService.createPlayer(playerRecordDto));
     }
+    @PutMapping("/{id}")
+    public  ResponseEntity<Player>updatePlayerById(@PathVariable Long id, @RequestBody PlayerRecordDto playerRecordDto){
+        return  ResponseEntity.status(HttpStatus.OK).body(playerService.updatePlayerById(id,playerRecordDto));
+    }
+
 }

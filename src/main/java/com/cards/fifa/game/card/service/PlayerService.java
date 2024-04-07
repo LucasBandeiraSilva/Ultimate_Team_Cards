@@ -50,4 +50,17 @@ public class PlayerService {
         playerRepository.save(player);
         return player;
     }
+
+    public Player updatePlayerById(Long id, PlayerRecordDto playerRecordDto){
+        var player = new Player();
+        BeanUtils.copyProperties(playerRecordDto, player);
+        paceRepository.save(player.getPace());
+        passingRepository.save(player.getPassing());
+        shootingRepository.save(player.getFinishing());
+        dribblingRepository.save(player.getDribbling());
+        defendingRepository.save(player.getDefending());
+        physicalityRepository.save(player.getPhysicality());
+        playerRepository.save(player);
+        return player;
+    }
 }
